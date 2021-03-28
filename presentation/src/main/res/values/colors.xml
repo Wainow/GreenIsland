@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorBackgroundToolbar">#191919</color>
+    <color name="colorBackgroundDark">#000000</color>
+    <color name="colorBackground">#0a0a0a</color>
+    <color name="colorBackgroundItem">#171717</color>
+    <color name="colorBackgroundCurrentItem">#292929</color>
+    <color name="colorBackgroundTab">#474747</color>
+    <color name="colorBackgroundLight">#545454</color>
+
+    <color name="colorPrimary">#03dac5</color>
+    <color name="colorPrimaryDark">#00a895</color>
+    <color name="colorAccent">#66fff8</color>
+
+    <color name="colorSecondary">#bb86fc</color>
+    <color name="colorSecondaryDark">#8858c8</color>
+    <color name="colorSecondaryLight">#efb7ff</color>
+
+    <color name="colorLineBackground">#221831</color>
+    <color name="colorLineActually">#431667</color>
+    <color name="colorLineForeground">#9011EE</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:width="@dimen/speech_bubble_tail"
+        android:height="@dimen/speech_bubble_tail"
+        android:gravity="bottom|center">
+        <vector
+            android:width="@dimen/speech_bubble_tail"
+            android:height="@dimen/speech_bubble_tail"
+            android:viewportWidth="25.0"
+            android:viewportHeight="45.0">
+            <path
+                android:pathData="M12.5,25 25,0 0,0z"
+                android:fillColor="@color/colorWhite"/>
+        </vector>
+    </item>
+</layer-list>
