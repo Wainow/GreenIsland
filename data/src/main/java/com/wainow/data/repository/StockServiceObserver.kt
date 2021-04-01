@@ -53,13 +53,18 @@ class StockServiceObserver: StockService() {
         return company
     }
 
+    /*
+    * In this method i could use switchMap() for precise stock list
+    * But actually if i would use switchMap() then after adding 4 stock value we would see: queue is full !?? exception
+    * Therefore a flatMap() is a better solution than switchMap() for this task
+     */
     fun setFavoriteList(list: List<String>, startIndex: Long): Flowable<List<CompanyProfile>> {
         return try {
             Flowable.fromIterable(list)
                 .switchMap { item -> isInternetAvailable(item) }
                 .skip(startIndex)
                 .take(10)
-                .concatMap { item ->
+                .flatMap { item ->
                     Flowable.zip(
                         fService.getCompanyProfile(item),
                         fService.getQuote(item),
@@ -124,10 +129,10 @@ class StockServiceObserver: StockService() {
         }
     }
     /*
-    * I had some troubles with work on favorite list when internet isn't available
+    * I had some exceptions with work on favorite list when internet isn't available
     * That method doesn't allow get info from finnhub site if internet is gone
     * But actually i've using that only for favorite list
-    * Because i don't have those troubles on other lists
+    * Because i don't have those exceptions on other lists
      */
     private fun isInternetAvailable(item: String): Flowable<String> {
         try {

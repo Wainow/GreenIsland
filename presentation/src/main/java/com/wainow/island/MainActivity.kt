@@ -23,11 +23,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewPager: ViewPager
     private lateinit var tabs: TabLayout
     private lateinit var searchView: SearchView
-    private lateinit var imageView: ImageView
     private val queryViewModel by lazy {
         ViewModelProviders.of(this).get(
             QueryListViewModel::class.java
         )}
+
+    companion object{
+        const val COLOR_HINT = "#474747"
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +38,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initView()
         setViewPager(viewPager, tabs)
-        setImageViewClicks(imageView)
         setSearchViewColors(searchView)
         setPagerVisibility()
         setSearchViewClicks(searchView)
@@ -45,7 +47,6 @@ class MainActivity : AppCompatActivity() {
         viewPager = findViewById(R.id.view_pager)
         searchView = findViewById(R.id.search_view)
         tabs = findViewById(R.id.tabs)
-        imageView = findViewById(R.id.ic_iv)
     }
 
     private fun setViewPager(viewPager: ViewPager, tabs: TabLayout){
@@ -58,19 +59,12 @@ class MainActivity : AppCompatActivity() {
         tabs.setupWithViewPager(viewPager)
     }
 
-    private fun setImageViewClicks(imageView: ImageView){
-        imageView.setOnClickListener {
-            val intent = Intent(this, CompanyActivity::class.java)
-            startActivity(intent)
-        }
-    }
-
     private fun setSearchViewColors(searchView: SearchView){
         val txtSearch =
             searchView.findViewById<View>(androidx.appcompat.R.id.search_src_text) as EditText
         val clearSearch =
             searchView.findViewById<View>(androidx.appcompat.R.id.search_close_btn) as ImageView
-        txtSearch.setHintTextColor(Color.parseColor("#474747"))
+        txtSearch.setHintTextColor(Color.parseColor(COLOR_HINT))
         txtSearch.setTextColor(Color.WHITE)
         clearSearch.setImageResource(R.drawable.ic_clear)
         searchView.maxWidth = Integer.MAX_VALUE
